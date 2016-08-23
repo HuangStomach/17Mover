@@ -1,5 +1,5 @@
-import configparser
-cf = configparser.ConfigParser()
+import ConfigParser
+cf = ConfigParser.ConfigParser()
 cf.read("../config/site.conf") 
 
 def get (path):
