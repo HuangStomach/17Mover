@@ -10,8 +10,8 @@ def iconv(str, code = 'utf8'):
     else:
         return str.encode(code)
 
-i = 1
-j = 1
+i = 9328
+j = 932
 file = open('retry.txt', 'a')
 base = "http://www.sdkxyq.com"
 
@@ -20,7 +20,7 @@ while 1 == 1:
     doc = BeautifulSoup(html.read(), "html5lib")
 
     yiqikong = pyjsonrpc.HttpClient(
-        url = "http://192.168.0.5:5021/api"
+        url = "http://directory.17kong.com/api"
     )
     
     links = doc.findAll("a", {"class": "check_detail"})
@@ -90,10 +90,9 @@ while 1 == 1:
 
             yiqikong.call("YiQiKong/Directory/Add", equipment)
             i += 1
-            time.sleep(0.1)
+            time.sleep(0.2)
         except:
-            print equipment['ref_no']
-            file.write(equipment['ref_no'] + '-' + equipment['name'])
+            file.write(link['href'])
             file.write('\n')
             continue
     j += 1;
